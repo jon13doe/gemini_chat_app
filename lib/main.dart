@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gemini_gpt/onboarding.dart';
-import 'package:gemini_gpt/themeNotifier.dart';
-import 'package:gemini_gpt/themes.dart';
+import 'package:gemini_gpt/features/screens/onboarding.dart';
+import 'package:gemini_gpt/features/theme/index.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
-
-  runApp(
-      ProviderScope(child: MyApp())
-  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends ConsumerWidget {
@@ -21,11 +17,10 @@ class MyApp extends ConsumerWidget {
     final themeMode = ref.watch(themeProvider);
 
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: lightMode,
       darkTheme: darkMode,
       themeMode: themeMode,
-      home: Onboarding(),
+      home: const Onboarding(),
       debugShowCheckedModeBanner: false,
     );
   }
