@@ -76,10 +76,12 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
               child: (currentTheme == ThemeMode.dark)
                   ? Icon(
                       Icons.light_mode,
+                      size: 32,
                       color: Theme.of(context).colorScheme.secondary,
                     )
                   : Icon(
                       Icons.dark_mode,
+                      size: 32,
                       color: Theme.of(context).colorScheme.primary,
                     ),
               onTap: () {
